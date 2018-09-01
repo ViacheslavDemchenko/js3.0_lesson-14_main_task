@@ -1,3 +1,5 @@
+"use strict";
+
 window.addEventListener('DOMContentLoaded', () => {
 	
 	let calc = require('../modules/calc.js');
