@@ -1,7 +1,7 @@
 "use strict";
 
 function timer() {
-  var deadline = '2018-09-25 23:59:59'; //Задаем конечную дату
+  var deadline = '09-25-2018 23:59:59'; //Задаем конечную дату
   //Функция расчета оставшегося времени
 
   function getTimeRemaining(endtime) {

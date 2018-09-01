@@ -2,24 +2,24 @@
 "use strict";
 
 window.addEventListener('DOMContentLoaded', function() {
-	
-	let calc = require('../modules/calc.js');
-	let complex = require('../modules/complex.js');
-	let contactsForm = require('../modules/contactsForm.js');
-	let mainForm = require('../modules/mainForm.js');
-	let scroll = require('../modules/scroll.js');
-	let slider = require('../modules/slider.js');
-	let tabs = require('../modules/tabs.js');
-	let timer = require('../modules/timer.js');
+  
+  let calc = require('../modules/calc.js');
+  let complex = require('../modules/complex.js');
+  let contactsForm = require('../modules/contactsForm.js');
+  let mainForm = require('../modules/mainForm.js');
+  let scroll = require('../modules/scroll.js');
+  let slider = require('../modules/slider.js');
+  let tabs = require('../modules/tabs.js');
+  let timer = require('../modules/timer.js');
 
-	calc();
-	complex();
-	contactsForm();
-	mainForm();
-	scroll();
-	slider();
-	tabs();
-	timer();
+  calc();
+  complex();
+  contactsForm();
+  mainForm();
+  scroll();
+  slider();
+  tabs();
+  timer();
 
 
 });
@@ -77,7 +77,7 @@ function calc() {
     this.value = this.value.replace(/[^\d]*/g).replace(/^[^\d]*(\d+([.,]\d{0,5})?).*$/g, '$1'); // this.value = this.value.replace(/[+\.\,ёЁ]/,'');
 
     daysSum = +this.value; //Присвоение переменной значения инпута
-    //Обнуление итогового числа, если одно из полей пустое		
+    //Обнуление итогового числа, если одно из полей пустое    
 
     if (persons.value == '' || restDays.value == '') {
       totalValue.innerHTML = 0;
@@ -87,7 +87,7 @@ function calc() {
       total = 0;
     } else {
       total = (daysSum + personsSum) * 4000; //Вычисление итоговой суммы
-      //Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия	
+      //Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия  
 
       result = total * place.options[place.selectedIndex].value;
       animateValue('total', 0, result, 2000); //Запуск функции анимации числа
@@ -104,7 +104,7 @@ function calc() {
     } else {
       //Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия
       result = total * place.options[place.selectedIndex].value;
-      animateValue('total', 0, result, 2000); //Запуск функции анимации числа	
+      animateValue('total', 0, result, 2000); //Запуск функции анимации числа 
     }
   });
   /* ПЕРЕБОР ЦИФР */
@@ -571,11 +571,11 @@ module.exports = tabs;
 "use strict";
 
 function timer() {
-  var deadline = '2018-09-25 23:59:59'; //Задаем конечную дату
+  var deadline = '09-25-2018 23:59:59'; //Задаем конечную дату
   //Функция расчета оставшегося времени
 
   function getTimeRemaining(endtime) {
-    //Установка текущей даты и даты окончания акции	
+    //Установка текущей даты и даты окончания акции 
     var t = Date.parse(endtime) - Date.parse(new Date()),
         seconds = Math.floor(t / 1000 % 60),
         minutes = Math.floor(t / 1000 / 60 % 60),
@@ -598,7 +598,7 @@ function timer() {
         minutes = clock.querySelector('.minutes'),
         seconds = clock.querySelector('.seconds'),
         //Установка интервала работы таймера в 1 секунду
-    timeInterval = setInterval(updateClock, 1000); //Функция таймера обратного отсчета		
+    timeInterval = setInterval(updateClock, 1000); //Функция таймера обратного отсчета    
 
     function updateClock() {
       var t = getTimeRemaining(endtime); //Задаем функцию для добавления 0 к числам до 9 (01, 02 и т.д.)
