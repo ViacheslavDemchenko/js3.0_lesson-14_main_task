@@ -21,50 +21,52 @@ function calc() {
 
   totalValue.innerHTML = 0; //Изначальная установка нуля в ячейке общей суммы
 
-  persons.addEventListener('keyup', function () {
-    //Проверка инпута на запрет ввода ё, точки, запятой, букв и спецсимволов
-    this.value = this.value.replace(/[^\d]*/g).replace(/^[^\d]*(\d+([.,]\d{0,5})?).*$/g, '$1'); // this.value = this.value.replace(/[+\.\,ёЁ]/,'');
 
-    personsSum = +this.value; //Присвоение переменной значения инпута
-    //Обнуление итогового числа, если одно из полей пустое
-
+  persons.addEventListener('keyup', function() {
+//Проверка инпута на запрет ввода ё, точки, запятой, букв и спецсимволов
+    this.value = this.value.replace(/[^\d]*/g)
+                             .replace(/^[^\d]*(\d+([.,]\d{0,5})?).*$/g, '$1');
+// this.value = this.value.replace(/[+\.\,ёЁ]/,'');
+    personsSum = +this.value;//Присвоение переменной значения инпута
+//Обнуление итогового числа, если одно из полей пустое
     if (restDays.value == '' || persons.value == '') {
       totalValue.innerHTML = 0;
-      total = 0; //Обнуление итогового числа, если в одно из полей введен 0
+      total = 0;
+//Обнуление итогового числа, если в одно из полей введен 0
     } else if (restDays.value == 0 || persons.value == 0) {
       totalValue.innerHTML = 0;
       total = 0;
     } else {
-      total = (daysSum + personsSum) * 4000; //Вычисление итоговой суммы
-      //Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия
-
+      total = (daysSum + personsSum) * 4000;//Вычисление итоговой суммы
+//Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия
       result = total * place.options[place.selectedIndex].value;
-      animateValue('total', 0, result, 2000); //Запуск функции анимации числа
+      animateValue('total', 0, result, 2000);//Запуск функции анимации числа
     }
   });
-  restDays.addEventListener('keyup', function () {
-    //Проверка инпута на запрет ввода ё, точки, запятой, букв и спецсимволов
-    this.value = this.value.replace(/[^\d]*/g).replace(/^[^\d]*(\d+([.,]\d{0,5})?).*$/g, '$1'); // this.value = this.value.replace(/[+\.\,ёЁ]/,'');
 
-    daysSum = +this.value; //Присвоение переменной значения инпута
-    //Обнуление итогового числа, если одно из полей пустое		
-
+  restDays.addEventListener('keyup', function() {
+//Проверка инпута на запрет ввода ё, точки, запятой, букв и спецсимволов
+    this.value = this.value.replace(/[^\d]*/g)
+                             .replace(/^[^\d]*(\d+([.,]\d{0,5})?).*$/g, '$1');
+        // this.value = this.value.replace(/[+\.\,ёЁ]/,'');
+    daysSum = +this.value;//Присвоение переменной значения инпута
+//Обнуление итогового числа, если одно из полей пустое    
     if (persons.value == '' || restDays.value == '') {
       totalValue.innerHTML = 0;
-      total = 0; //Обнуление итогового числа, если в одно из полей введен 0
+      total = 0;
+//Обнуление итогового числа, если в одно из полей введен 0
     } else if (restDays.value == 0 || persons.value == 0) {
       totalValue.innerHTML = 0;
       total = 0;
     } else {
-      total = (daysSum + personsSum) * 4000; //Вычисление итоговой суммы
-      //Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия	
-
+      total = (daysSum + personsSum) * 4000;//Вычисление итоговой суммы
+//Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия  
       result = total * place.options[place.selectedIndex].value;
-      animateValue('total', 0, result, 2000); //Запуск функции анимации числа
+      animateValue('total', 0, result, 2000);//Запуск функции анимации числа
     }
-  }); //Обнуление итогового числа, если одно из полей пустое
-
-  place.addEventListener('change', function () {
+  });
+//Обнуление итогового числа, если одно из полей пустое
+  place.addEventListener('change', function() {
     if (restDays.value == '' || persons.value == '') {
       totalValue.innerHTML = 0;
       total = 0;
@@ -72,9 +74,9 @@ function calc() {
       totalValue.innerHTML = 0;
       total = 0;
     } else {
-      //Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия
+//Вычисление итоговой суммы с учетом коэффициента выбранного направления путеществия
       result = total * place.options[place.selectedIndex].value;
-      animateValue('total', 0, result, 2000); //Запуск функции анимации числа	
+      animateValue('total', 0, result, 2000);//Запуск функции анимации числа  
     }
   });
   /* ПЕРЕБОР ЦИФР */
